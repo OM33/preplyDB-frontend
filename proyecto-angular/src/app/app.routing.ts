@@ -1,6 +1,6 @@
-// import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
 import { AboutComponent } from './components/about/about.component';
 import { StudentsComponent } from './components/students/students.component';
 import { CreateComponent } from './components/create/create.component';
@@ -11,16 +11,11 @@ const appRoutes: Routes = [
   {path: '', component: AboutComponent},
   {path: 'sobre-mi', component: AboutComponent},
   {path: 'students', component: StudentsComponent},
-  {path: 'crate-student', component: CreateComponent},
+  {path: 'create-student', component: CreateComponent},
   {path: 'contacto', component: ContactComponent},
   {path: '**', component: ErrorComponent},
 ];
 
-export const AppRoutingProviders: any[] = [];
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const appRoutingProviders: any[] = [];
+export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
 
-// @NgModule({
-//   imports: [RouterModule.forRoot(appRoutes)],
-//   exports: [RouterModule]
-// })
-// export class AppRoutingModule { }
