@@ -1,0 +1,15 @@
+/*seccion del formulario*/
+.container{
+    padding: 50px;
+    padding-top: 10px;
+}
+
+.container h2{
+    display: block;
+    border-bottom: 1px solid ccc;
+    margin-bottom: 15px;
+}
+
+form{
+    width: 70%;
+}

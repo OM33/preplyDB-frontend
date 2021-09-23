@@ -1,1 +1,70 @@
-<p>create works!</p>
+<div class="container">
+    <h2>{{title}}</h2>
+    <form #studentForm = "ngForm" (ngSubmit) = "onSubmit(studentForm)">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="student.name"/>   
+        </p>
+        
+        <p>
+         <label for="Real_name">Nombre Real</label>
+         <input type="text" name="Real_name" #Real_name="ngModel" [(ngModel)]="student.Real_name"/>
+     </p>
+     
+     <p>
+         <label for="location">Ubicacion</label>
+         <input type="text" name="location" #location="ngModel" [(ngModel)]="student.location"/>
+     </p>
+     
+     <p>
+         <label for="langs">Idiomas</label>
+         <input type="text" name="langs" #langs="ngModel" [(ngModel)]="student.langs"/>
+     </p>
+     
+     <p>
+         <label for="age">Edad</label>
+         <input type="number" name="age" #age="ngModel" [(ngModel)]="student.age"/>
+     </p>
+     
+     <p>
+         <label for="level">Nivel de Espanol</label>
+         <input type="text" name="level" #level="ngModel" [(ngModel)]="student.level"/>
+     </p>
+     
+     <p>
+         <label for="platform">Plataforma</label>
+         <input type="text" name="platform" #platform="ngModel" [(ngModel)]="student.platform"/>
+     </p>
+     
+     <p>
+         <label for="motives">Motivos</label>
+         <textarea name="motives" #motives="ngModel" [(ngModel)]="student.motives"></textarea>
+     </p>
+     
+     <p>
+         <label for="goals">Metas</label>
+         <textarea name="goals" #goals="ngModel" [(ngModel)]="student.goals"></textarea>
+     </p>
+     <p>
+         <label for="interests">Intereses</label>
+         <textarea name="interests" #interests="ngModel" [(ngModel)]="student.interests"></textarea>
+     </p>
+     <p>
+         <label for="music">Musica</label>
+         <textarea name="music" #music="ngModel" [(ngModel)]="student.music"></textarea>
+     </p>
+     <p>
+         <label for="obs">Observaciones</label>
+         <textarea name="obs" #obs="ngModel" [(ngModel)]="student.obs"></textarea>
+     </p>
+     
+     <p>
+         <label for="image">Imagen del Estudiante</label>
+     <br>
+         <input type="file" name="image" placeholder="Subir Imagen"/>
+     </p>
+ 
+     <input type = "submit" value="Enviar"/>
+ 
+    </form>
+</div>
