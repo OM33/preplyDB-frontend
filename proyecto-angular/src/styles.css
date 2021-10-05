@@ -19,6 +19,7 @@
   h5,
   h6 {
     margin: 8px 0;
+    color:rgba(0, 0, 0, 0.75)
   }
 
   p {
@@ -64,13 +65,15 @@
   .content {
     display: flex;
     margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
+    padding: 0 18px;
+    max-width:1460px;
     flex-direction: column;
     align-items: center;
   }
 app-create{
   width: 100%;
+  height: auto;
+  min-height: 100px;
 }
   svg.material-icons {
     height: 24px;

@@ -1,9 +1,19 @@
 <div class="container">
     <h2>{{title}}</h2>
+    <div class="message success" *ngIf = 'status=="success"'>
+        El estudiante ha sido creado, y puedes verlo 
+        <a href='#'> Aqui</a>. 
+    </div>
+    <div class="message failed" *ngIf = 'status=="failed"'>
+        El proyecto NO SE HA PODIDO CREAR
+    </div>
     <form #studentForm = "ngForm" (ngSubmit) = "onSubmit(studentForm)">
         <p>
             <label for="name">Nombre</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="student.name"/>   
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="student.name" required/>
+            <span class = "form_error" *ngIf = "name.touched && !name.valid">
+                El nombre es obligatorio
+        </span>   
         </p>
         
         <p>
@@ -13,12 +23,18 @@
      
      <p>
          <label for="location">Ubicacion</label>
-         <input type="text" name="location" #location="ngModel" [(ngModel)]="student.location"/>
+         <input type="text" name="location" #location="ngModel" [(ngModel)]="student.location" required/>
+         <span class = "form_error" *ngIf = "location.touched && !location.valid">
+            La ubicacion es obligatoria
+        </span>
      </p>
      
      <p>
          <label for="langs">Idiomas</label>
-         <input type="text" name="langs" #langs="ngModel" [(ngModel)]="student.langs"/>
+         <input type="text" name="langs" #langs="ngModel" [(ngModel)]="student.langs" required/>
+         <span class = "form_error" *ngIf = "langs.touched && !langs.valid">
+            Los idiomas son obligatorios
+    </span>
      </p>
      
      <p>
@@ -28,12 +44,18 @@
      
      <p>
          <label for="level">Nivel de Espanol</label>
-         <input type="text" name="level" #level="ngModel" [(ngModel)]="student.level"/>
+         <input type="text" name="level" #level="ngModel" [(ngModel)]="student.level" required/>
+         <span class = "form_error" *ngIf = "level.touched && !level.valid">
+            El nivel es obligatorio
+        </span>
      </p>
      
      <p>
          <label for="platform">Plataforma</label>
-         <input type="text" name="platform" #platform="ngModel" [(ngModel)]="student.platform"/>
+         <input type="text" name="platform" #platform="ngModel" [(ngModel)]="student.platform" required/>
+         <span class = "form_error" *ngIf = "platform.touched && !platform.valid">
+            La plataforma es obligatoria
+    </span>
      </p>
      
      <p>
@@ -61,10 +83,10 @@
      <p>
          <label for="image">Imagen del Estudiante</label>
      <br>
-         <input type="file" name="image" placeholder="Subir Imagen"/>
+         <input type="file" name="image" placeholder="Subir Imagen" (change) = "fileChangeEvent($event)"/>
      </p>
  
-     <input type = "submit" value="Enviar"/>
+     <input type = "submit" value="Enviar" [disabled] = "!studentForm.form.valid"/>
  
     </form>
 </div>

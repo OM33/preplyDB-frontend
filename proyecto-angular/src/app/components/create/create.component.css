@@ -12,4 +12,62 @@
 
 form{
     width: 70%;
+    margin-left: 15%;
+}
+
+form label{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 0.5em;
+    font-size: large;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea{
+    width: 80%;
+    padding: 5px;
+}
+
+form button,
+form input[type="submit"]{
+    display: block;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 15px;
+    color: white;
+    background-color: rgba(53,103,164,1);
+    border: 1px solid rgba(13,67,133,1);
+}
+
+form button:hover,
+form input[type="submit"]:hover{
+    background: rgba(53,103,164,0.8);
+    border: 1px solid rgba(13,67,133,1);
+}
+
+form input[disabled]{
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.message{
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 100%;
+}
+.message a{
+    color: white;
+}
+
+.success{
+    background: green;
+    color: white;
+}
+
+failed{
+    background: red;
+    color: white;
 }
