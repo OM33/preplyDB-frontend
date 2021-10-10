@@ -28,4 +28,14 @@ export class StudentService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url + 'get-students', {headers:headers});
     }
+
+    getStudent(id : any): Observable<any>{
+        let headers = new HttpHeaders().set('content-Type', 'application/json');
+        return this._http.get(this.url + 'get-student/' + id, {headers: headers});
+    } 
+
+    deleteStudent(id: any): Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.delete(this.url+'student/'+ id , {headers:headers});
+    }
 }

@@ -1,1 +1,25 @@
-<p>detail works!</p>
+<div class="container">
+    <div class="image">
+        <img src="{{url+'get-image/'+student.image}}" *ngIf="student.image" />
+    </div>
+
+
+
+    <div class="data">
+        <h1>{{ student.name }}</h1>
+        <h2>{{student.Real_name }}</h2>
+        <p>Vive en: <strong>{{student.location}}</strong></p>
+        <p>Lenguajes: <strong>{{student.langs}}</strong></p>
+        <p>Edad: <strong>{{student.age}}</strong></p>
+        <p>Nivel: <strong>{{student.level}}</strong></p>
+        <p>Plataforma: <strong>{{student.platform}}</strong></p>
+        <p>Motivos: <strong>{{student.motives}}</strong></p>
+        <p>Metas: <strong>{{student.goals}}</strong></p>
+        <p>Intereses: <strong>{{student.interests}}</strong></p>
+        <p>Observaciones: <strong>{{student.obs}}</strong></p>
+        <p class="buttons">
+            <a href="#" class="button_edit">Editar</a>
+            <a (click)="deleteStudent(student._id)" class="button_delete">Borrar</a>
+        </p>
+    </div>
+</div>

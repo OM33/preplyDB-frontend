@@ -1,0 +1,54 @@
+.image{
+    float: left;
+    width: 35%;
+}
+
+.image img{
+float: left;
+width: 100%;
+}
+
+.data{
+float: left;
+width: 49%;
+margin-left: 30px;
+}
+
+.data h1 h2{
+    float: left;
+    color: blue;
+}
+
+.data p{
+    font-size: large;
+}
+
+.buttons{
+    margin-top: 1.5em;
+}
+
+.button_edit{
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    margin-top: 20px;
+}
+
+a{
+    color: #333;
+    margin-top: auto;
+    padding: 8px;
+    font-weight: bold;
+}
+
+a:hover{
+    opacity: 0.7;
+}
+
+.button_delete{
+    background-color: red;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    margin-left: 30px;
+}

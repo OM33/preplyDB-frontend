@@ -2,7 +2,7 @@
     <h2>{{title}}</h2>
     <div class="message success" *ngIf = 'status=="success"'>
         El estudiante ha sido creado, y puedes verlo 
-        <a href='#'> Aqui</a>. 
+        <a [routerLink] = "['/student', saved_student._id]"> Aqui</a>. 
     </div>
     <div class="message failed" *ngIf = 'status=="failed"'>
         El proyecto NO SE HA PODIDO CREAR

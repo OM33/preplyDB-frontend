@@ -1,14 +1,16 @@
 <div class="content">
     <h2>ESTUDIANTES</h2>
     <ul>
-        <li *ngFor = 'let student of students' class = 'student'>
-            <div class="image">
-                <img src="{{url + 'get-image/' + student.image}}" *ngIf = "student.image"/>                
-            </div>   
+        <li *ngFor='let student of students' class='student'>
+            <a [routerLink]="['/student', student._id]">
+                <div class="image">
+                    <img src="{{url + 'get-image/' + student.image}}" *ngIf="student.image" />
+                </div>
+            
             <h3>{{student.name}}</h3>
-            <p>{{student.location}}</p>    
+            <p>{{student.location}}</p>
+        </a>
         </li>
     </ul>
-    
-</div>
 
+</div>

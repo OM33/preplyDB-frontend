@@ -17,6 +17,7 @@ export class CreateComponent implements OnInit {
   public student: Student;
   public status: String;
   public filesToUpload: Array<File>;
+  public saved_student: Student;
 
   constructor(private _studentService: StudentService,
     private _uploadservice: UploadService) {
@@ -24,6 +25,7 @@ export class CreateComponent implements OnInit {
     this.student = new Student('', '', '', '', '', 0, '', '', '', '', '', '', '', '');
     this.status = "";
     this.filesToUpload = [];
+    this.saved_student = new Student('', '', '', '', '', 0, '', '', '', '', '', '', '', '');
   }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class CreateComponent implements OnInit {
             this.filesToUpload,
             'image').then((result:any) =>{
               console.log(result);
+              this.saved_student = result.student;
               this.status = "success";
               form.reset();
             });
