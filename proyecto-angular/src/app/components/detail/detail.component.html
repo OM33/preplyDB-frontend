@@ -1,6 +1,6 @@
-<div class="container">
-    <div class="image">
-        <img src="{{url+'get-image/'+student.image}}" *ngIf="student.image" />
+<div class="container" *ngIf = "student">
+    <div class="image" *ngIf="student.image">
+        <img src="{{url+'get-image/'+student.image}}" />
     </div>
 
 
@@ -8,7 +8,9 @@
     <div class="data">
         <h1>{{ student.name }}</h1>
         <h2>{{student.Real_name }}</h2>
+        <p>Email: <strong>{{student.email}}</strong></p>
         <p>Vive en: <strong>{{student.location}}</strong></p>
+        <p>Diferencia horaria: <strong>{{student.dif_time}} horas</strong></p>
         <p>Lenguajes: <strong>{{student.langs}}</strong></p>
         <p>Edad: <strong>{{student.age}}</strong></p>
         <p>Nivel: <strong>{{student.level}}</strong></p>
@@ -17,9 +19,25 @@
         <p>Metas: <strong>{{student.goals}}</strong></p>
         <p>Intereses: <strong>{{student.interests}}</strong></p>
         <p>Observaciones: <strong>{{student.obs}}</strong></p>
-        <p class="buttons">
-            <a href="#" class="button_edit">Editar</a>
-            <a (click)="deleteStudent(student._id)" class="button_delete">Borrar</a>
+
+        <p class="buttons" *ngIf = "confirm == false">
+            <a [routerLink] = "['/edit-student', student._id]" class="button_edit">Editar</a>
+            <a (click)="setConfirm(true)" class="button_delete">Borrar</a>
         </p>
+
+        <p class="buttons" *ngIf = "confirm == true">
+            <span class="confirm">Estas seguro de eliminar al estudiante?</span>
+            <a (click)="deleteStudent(student._id)" class="button_edit">  SI </a>
+            <a (click)='setConfirm(false)' class="button_delete"> NO </a>
+        </p>
+
+        <div class="message success" *ngIf = 'status=="success"'>
+            El estudiante ha sido Borrado exitosamente 
+            <a [routerLink] = "['/students']"> VOLVER A BASE DE DATOS</a> 
+        </div>
+        <div class="message failed" *ngIf = 'status=="failed"'>
+            El proyecto NO SE HA PODIDO BORRAR
+        </div>
     </div>
+   
 </div>

@@ -1,6 +1,13 @@
-<div class="container" *ngIf = "student">
+<div class="container">
+
     <h2>{{title}}</h2>
-   
+    <div class="message success" >
+        El estudiante ha sido MODIFICADO, y puedes verlo 
+        <a [routerLink] = "['/student', student._id]"> Aqui</a>. 
+    </div>
+    <div class="message failed" *ngIf = 'status=="failed"'>
+        El proyecto NO SE HA PODIDO MODIFICAR
+    </div>
     <form #studentForm = "ngForm" (ngSubmit) = "onSubmit(studentForm)">
         <p>
             <label for="name">Nombre</label>
@@ -27,13 +34,12 @@
             La ubicacion es obligatoria
         </span>
      </p>
-
+     
      <p>
         <label for="dif_time">Diferencia Horaria</label>
         <input type="number" name="dif_time" #dif_time="ngModel" [(ngModel)]="student.dif_time"/>
     </p>
-    
-     
+
      <p>
          <label for="langs">Idiomas</label>
          <input type="text" name="langs" #langs="ngModel" [(ngModel)]="student.langs" required/>
@@ -88,21 +94,13 @@
      <p>
          <label for="image">Imagen del Estudiante</label>
      <br>
-     <span class="image" *ngIf = "student.image">
-        <img src="{{ url+'get-image/'+student.image }}" style="width: 100px;"/>
-     </span>
-     <br>
          <input type="file" name="image" placeholder="Subir Imagen" (change) = "fileChangeEvent($event)"/>
      </p>
  
      <input type = "submit" value="Enviar" [disabled] = "!studentForm.form.valid"/>
+
+     
+     <a [routerLink] = "['/student', student._id]" class='back-button'> VOLVER </a> 
+ 
     </form>
-    
-    <div class="message success" *ngIf = 'status=="success"'>
-        El estudiante ha sido creado, y puedes verlo 
-        <a [routerLink] = "['/student', saved_student._id]"> Aqui</a>. 
-    </div>
-    <div class="message failed" *ngIf = 'status=="failed"'>
-        El proyecto NO SE HA PODIDO CREAR
-    </div>
 </div>

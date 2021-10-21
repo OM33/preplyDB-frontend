@@ -1,7 +1,9 @@
-/*seccion del formulario*/
+
+
 .container{
     padding: 50px;
     padding-top: 10px;
+    width: 80%;
 }
 
 .container h2{
@@ -70,7 +72,4 @@ form input[disabled]{
 .failed{
     background: red;
     color: white;
-}
-.image{
-    float: none;
 }

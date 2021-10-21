@@ -239,6 +239,10 @@ app-create{
     width: 1920px;
   }
 
+  app-edit{
+    width: 100%;
+}
+
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
     .card-container > *:not(.circle-link) ,

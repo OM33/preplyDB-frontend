@@ -6,6 +6,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { CreateComponent } from './components/create/create.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ErrorComponent } from './components/error/error.component';
+import { EditComponent } from './components/edit/edit.component';
 
 const appRoutes: Routes = [
   {path: '', component: AboutComponent},
@@ -13,11 +14,12 @@ const appRoutes: Routes = [
   {path: 'students', component: StudentsComponent},
   {path: 'crate-student', component: CreateComponent},
   {path: 'contacto', component: ContactComponent},
+  {path: 'edit-student/:id', component:EditComponent},
   {path: '**', component: ErrorComponent},
 ];
 
 export const AppRoutingProviders: any[] = [];
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
 
 // @NgModule({
 //   imports: [RouterModule.forRoot(appRoutes)],

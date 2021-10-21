@@ -1,28 +1,31 @@
-import { Global } from '../../services/global';
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../models/student';
-import { StudentService } from '../../services/student.service';
+import { StudentService } from 'src/app/services/student.service';
 import { UploadService } from 'src/app/services/upload.service';
+import { Global } from 'src/app/services/global';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
-  selector: 'app-create',
-  templateUrl: './create.component.html',
-  styleUrls: ['./create.component.css'],
+  selector: 'app-edit',
+  templateUrl: '../create/create.component.html',
+  styleUrls: ['../create/create.component.css'],
   providers: [StudentService,
     UploadService]
 })
-export class CreateComponent implements OnInit {
+export class EditComponent implements OnInit {
   public title: String;
   public student: Student;
   public status: String;
   public filesToUpload: Array<File>;
   public saved_student: Student;
-  public url: String;
+  public url: string; 
 
   constructor(private _studentService: StudentService,
-    private _uploadservice: UploadService) {
-    this.title = "Crear Estudiante";
+    private _uploadservice: UploadService,
+    private _router: Router,
+    private _route: ActivatedRoute) {
+    this.title = "Editar Estudiante";
     this.student = new Student('','','','','',0,'',0,'','','','','','','','');
     this.status = "";
     this.filesToUpload = [];
@@ -31,11 +34,26 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._route.params.subscribe(params => {
+      let id = params.id;
+      this.getStudent(id);
+    });
+  }
+
+  getStudent(id: any) {
+    this._studentService.getStudent(id).subscribe(
+      response => {
+        this.student = response.student;
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
   }
 
   onSubmit(form: any) {
-    //  console.log(this.student);
-    this._studentService.saveStudent(this.student).subscribe(
+     console.log(this.student);
+    this._studentService.updateStudent(this.student).subscribe(
       response => {
         if (response.student) {
           //subiendo la imagen

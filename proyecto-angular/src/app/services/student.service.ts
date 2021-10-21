@@ -38,4 +38,10 @@ export class StudentService{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
         return this._http.delete(this.url+'student/'+ id , {headers:headers});
     }
+
+    updateStudent(student:Student): Observable<any>{
+        let params = JSON.stringify(student);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.put(this.url+'student/'+student._id, params, {headers: headers});
+    }
 }

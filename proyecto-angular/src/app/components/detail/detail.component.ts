@@ -14,13 +14,18 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class DetailComponent implements OnInit {
   public url: string;
   public student: Student;
+  public status: String; 
+  public confirm: boolean;
+
   constructor(
     private _studentService: StudentService,
     private _router: Router,
     private _route: ActivatedRoute
   ) {
     this.url = Global.url;
-    this.student = new Student('', '', '', '', '', 0, '', '', '', '', '', '', '', '');
+    this.student = new Student('', '', '','','',0,'',0,'','','','','','','','');
+    this.status = " ";
+    this.confirm = false;
   }
 
   ngOnInit(): void {
@@ -41,14 +46,21 @@ export class DetailComponent implements OnInit {
     )
   }
 
+  setConfirm(confirm: boolean){
+    this.confirm = confirm;
+  }
+
   deleteStudent(id: any) {
     this._studentService.deleteStudent(id).subscribe(response => {
       if (response.sudent) {
         this._router.navigate(['/students']);
+      } else {
+        this.status = "success";
       }
     },
       error => {
         console.log(<any>error);
+
       }
     );
   }

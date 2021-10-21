@@ -52,3 +52,32 @@ a:hover{
     margin-top: 20px;
     margin-left: 30px;
 }
+.message{
+    padding: 5px;
+    border: 1px solid #eee;
+    width: 100%;
+    margin-top: 2.1em;
+}
+
+.message a{
+    color: white;
+    background: yellowgreen;
+}
+
+.success{
+    background: green;
+    color: white;
+}
+
+.failed{
+    background: red;
+    color: white;
+}
+
+.confirm{
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:red;
+}
